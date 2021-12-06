@@ -1,6 +1,10 @@
 import requests
+from twilio.rest import Client
 
-api_key = "key"
+api_key = "50b6c4fe525eac6dc5debd6190d17117"
+
+account_sid = "ACe0222a0aef34934c8a3e3770a4a5e3f0"
+auth_token = "Your token"
 
 parameters = {
     "lat": 43.653225,
@@ -21,8 +25,12 @@ for weather_hourly in data_slice:
         will_rain = True
 
 if will_rain:
-    print("Bring an umbrella.")
-
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+        .create(
+        body="It's going to rain today. Remember to bring an umbrella",
+        from_="+17176706908",
+        to="Your phone"
+    )
+    print(message.status)
 # print(weather_data["hourly"][0]["weather"][0]["id"])
-
-
