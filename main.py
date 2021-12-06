@@ -1,7 +1,7 @@
 import requests
 from twilio.rest import Client
 
-api_key = "50b6c4fe525eac6dc5debd6190d17117"
+api_key = "Your api_key"
 
 account_sid = "ACe0222a0aef34934c8a3e3770a4a5e3f0"
 auth_token = "Your token"
